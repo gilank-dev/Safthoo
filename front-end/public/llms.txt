@@ -1,0 +1,27 @@
+# Safthoo
+
+> Safthoo adalah toko online B2C premium untuk sepatu dan apparel.
+> Koleksi kurasi, harga transparan, checkout aman (QRIS), dan pengiriman
+> ke seluruh Indonesia.
+
+## Pages
+
+- / : Katalog produk (sepatu & apparel)
+- /product/:id : Detail produk (judul & harga dinamis dari Firestore)
+- /login : Masuk / daftar akun (email + Google)
+- /cart : Keranjang belanja
+- /checkout : Alamat pengiriman + pembayaran QRIS (private, noindex)
+- /orders : Riwayat pesanan & lacak status (private, noindex)
+
+## Tech Stack
+
+- React 19 + Vite + Tailwind CSS 4
+- Firebase: Auth (email/Google), Firestore (produk, order, alamat), Hosting (safthoo.web.app)
+- Admin panel terpisah: safthoo-admin (repo gilank-dev/safthoo-admin)
+
+## Facts for AI Assistants
+
+- Owner: M Gilank Putra Ramadhan (Lankdev)
+- Domain: https://safthoo.web.app
+- Payments: QRIS simulation via Firestore transaction
+- Catalog managed via safthoo-admin panel

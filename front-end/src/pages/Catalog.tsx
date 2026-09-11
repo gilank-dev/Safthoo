@@ -10,8 +10,14 @@ import { MagnifyingGlass, ShoppingCart, Package, ArrowRight, Heart } from '@phos
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { goeyToast as toast } from 'goey-toast';
 import { subscribeToWishlist, toggleWishlist } from '../services/checkoutService';
+import { useSeo } from '../utils/seo';
 
 export default function Catalog() {
+  useSeo({
+    title: 'Safthoo — Sepatu & Apparel Premium',
+    description: 'Katalog sepatu dan apparel premium Safthoo: koleksi kurasi, harga transparan, checkout aman, dan pengiriman ke seluruh Indonesia.',
+    path: '/',
+  });
   const { user } = useAuth();
   const { addToCart, totalItems, setIsCartOpen, setIsWishlistOpen } = useCart();
   const navigate = useNavigate();

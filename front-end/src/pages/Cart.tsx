@@ -7,8 +7,14 @@ import { subscribeProducts } from '../services/productService';
 import type { Product } from '../services/productService';
 import { goeyToast as toast } from 'goey-toast';
 import { motion } from 'framer-motion';
+import { useSeo } from '../utils/seo';
 
 export default function Cart() {
+  useSeo({
+    title: 'Keranjang · Safthoo',
+    description: 'Review pesanan kamu: pilih ukuran, jumlah, dan lanjut ke checkout dengan pembayaran aman Safthoo.',
+    path: '/cart',
+  });
   const { items, updateQuantity, removeFromCart, subtotal, totalItems } = useCart();
   const { user } = useAuth();
   const navigate = useNavigate();

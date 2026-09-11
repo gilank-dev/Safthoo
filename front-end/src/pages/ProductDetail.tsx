@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useSeo } from '../utils/seo';
 import { doc, onSnapshot, collection, query, where, addDoc, deleteDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { useCart } from '../contexts/CartContext';
@@ -59,6 +60,16 @@ export default function ProductDetail() {
 
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Per-product SEO (dynamic title/description from Firestore data)
+  useSeo({
+    title: product ? `${product.name} · Safthoo` : 'Memuat Produk · Safthoo',
+    description: product
+      ? `Beli ${product.name} di Safthoo — harga Rp ${product.current_price.toLocaleString('id-ID')}, checkout aman, kirim ke seluruh Indonesia.`
+      : 'Detail produk Safthoo.',
+    path: `/product/${id}`,
+    noindex: !product,
+  });
 
   // Selections
   const [selectedColor, setSelectedColor] = useState('');

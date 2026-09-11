@@ -5,6 +5,7 @@ import { auth } from '../lib/firebase';
 import { GoogleLogo, EnvelopeSimple, Key, ArrowLeft } from '@phosphor-icons/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { goeyToast as toast } from 'goey-toast';
+import { useSeo } from '../utils/seo';
 
 const getFriendlyAuthErrorMessage = (err: any): string => {
   const code = err?.code || '';
@@ -27,6 +28,11 @@ const getFriendlyAuthErrorMessage = (err: any): string => {
 };
 
 export default function Login() {
+  useSeo({
+    title: 'Masuk · Safthoo',
+    description: 'Masuk ke akun Safthoo untuk checkout cepat, lacak pesanan, dan simpan alamat pengiriman.',
+    path: '/login',
+  });
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');

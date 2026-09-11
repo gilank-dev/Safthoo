@@ -13,8 +13,15 @@ import {
 } from '../services/checkoutService';
 import { QrCode, CheckCircle, WarningCircle, ArrowLeft, Receipt, Printer, Truck, MapPin, Notebook } from '@phosphor-icons/react';
 import { motion } from 'framer-motion';
+import { useSeo } from '../utils/seo';
 
 export default function Checkout() {
+  useSeo({
+    title: 'Checkout · Safthoo',
+    description: 'Selesaikan pesanan Safthoo: alamat pengiriman, metode kirim, dan pembayaran QRIS aman.',
+    path: '/checkout',
+    noindex: true,
+  });
   const { user } = useAuth();
   const { items, subtotal, clearCart } = useCart();
   const navigate = useNavigate();

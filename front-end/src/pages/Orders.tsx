@@ -5,6 +5,7 @@ import { db } from '../lib/firebase';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Package, CheckCircle, Clock, Receipt, CaretDown, CaretUp, Printer, Phone, Truck } from '@phosphor-icons/react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSeo } from '../utils/seo';
 
 interface Order {
   id: string;
@@ -24,6 +25,12 @@ interface Order {
 }
 
 export default function Orders() {
+  useSeo({
+    title: 'Pesanan Saya · Safthoo',
+    description: 'Lacak dan review semua pesanan Safthoo kamu: status pembayaran, pengiriman, dan detail item.',
+    path: '/orders',
+    noindex: true,
+  });
   const { user } = useAuth();
   const [orders, setOrders] = useState<(Order & { paymentStatus?: string })[]>([]);
   const [isLoading, setIsLoading] = useState(true);
